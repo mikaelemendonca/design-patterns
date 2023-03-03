@@ -1,0 +1,15 @@
+{
+    "name": "mikaele/projeto-desing-patterns",
+    "autoload": {
+        "psr-4": {
+            "Alura\\DesingPatterns\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mikaele Costa",
+            "email": "mikaelemendonca@gmail.com"
+        }
+    ],
+    "require": {}
+}
