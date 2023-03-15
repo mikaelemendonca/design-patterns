@@ -13,5 +13,15 @@ abstract class Desconto
         $this->proximoDesconto = $proximoDesconto;
     }
 
+    // public function calcula(Orcamento $orcamento)
+    // {
+    //     $calculo = $this->calculaDesconto($orcamento);
+    //     if ($calculo === 0) {
+    //         $this->proximoDesconto($orcamento);
+    //     }
+
+    //     return $calculo;
+    // }
+
     abstract public function calculaDesconto(Orcamento $orcamento): float;
 }
