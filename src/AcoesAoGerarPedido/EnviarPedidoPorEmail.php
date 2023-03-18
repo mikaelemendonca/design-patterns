@@ -2,10 +2,12 @@
 
 namespace Alura\DesingPatterns\AcoesAoGerarPedido;
 
-class EnviarPedidoPorEmail
+use Alura\DesingPatterns\Pedido;
+
+class EnviarPedidoPorEmail implements AcaoAposGerarPedido
 {
-    public function executaAcoes(Pedido $pedido)
+    public function executaAcoes(Pedido $pedido): void
     {
-        echo "Enviando e-mail do pedido";
+        echo "Enviando e-mail do pedido" . PHP_EOL;
     }
 }

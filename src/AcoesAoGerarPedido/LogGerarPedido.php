@@ -2,10 +2,12 @@
 
 namespace Alura\DesingPatterns\AcoesAoGerarPedido;
 
-class LogGerarPedido
+use Alura\DesingPatterns\Pedido;
+
+class LogGerarPedido implements AcaoAposGerarPedido
 {
-    public function executaAcoes(Pedido $pedido)
+    public function executaAcoes(Pedido $pedido): void
     {
-        echo "Gerando log do pedido";
+        echo "Gerando log do pedido" . PHP_EOL;
     }
 }
