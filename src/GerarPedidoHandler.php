@@ -3,21 +3,33 @@
 namespace Alura\DesingPatterns;
 
 use Alura\DesingPatterns\{GerarPedidoCommand, Orcamento, Pedido};
-use Alura\DesingPatterns\AcoesAoGerarPedido\AcaoAposGerarPedido;
 
 // class GerarPedidoHandler implements Command
-class GerarPedidoHandler
+class GerarPedidoHandler implements \SplSubject
 {
     private array $acoesAposGerarPedido;
+    public Pedido $pedido;
 
     public function __construct(
         /* PedidoRepository, MailService */
     ) {
     }
 
-    public function adicionaAcaoAoGerarPedido(AcaoAposGerarPedido $acaoAposGerarPedido)
+    public function attach(\SplObserver $observer)
     {
-        $this->acoesAposGerarPedido[] = $acaoAposGerarPedido;
+        $this->acoesAposGerarPedido[] = $observer;
+    }
+
+    public function detach(\SplObserver $observer)
+    {
+    }
+
+    public function notify()
+    {
+        foreach ($this->acoesAposGerarPedido as $acao) {
+            // $acao->update($this);
+            $acao->update($this->pedido);
+        }
     }
 
     public function executa(GerarPedidoCommand $gerarPedido)
@@ -31,8 +43,7 @@ class GerarPedidoHandler
         $pedido->nomeCliente = $gerarPedido->getNomeCliente();
         $pedido->orcamento = $orcamento;
 
-        foreach ($this->acoesAposGerarPedido as $acao) {
-            $acao->executaAcoes($pedido);
-        }
+        $this->pedido = $pedido;
+        $this->notify();
     }
 }

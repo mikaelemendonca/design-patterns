@@ -18,9 +18,11 @@ $geraPedidoCommand = new GerarPedidoCommand($valorOrcamento, $numeroDeItens, $no
 // precisa de uma injeção de dependência
 $gerarPedidoHandler = new GerarPedidoHandler();
 
-$gerarPedidoHandler->adicionaAcaoAoGerarPedido(new EnviarPedidoPorEmail());
-$gerarPedidoHandler->adicionaAcaoAoGerarPedido(new CriarPedidoNoBanco());
-$gerarPedidoHandler->adicionaAcaoAoGerarPedido(new LogGerarPedido());
+$gerarPedidoHandler->attach(new EnviarPedidoPorEmail());
+$gerarPedidoHandler->attach(new CriarPedidoNoBanco());
+$gerarPedidoHandler->attach(new LogGerarPedido());
 
 // todas as regras em um comando
 $gerarPedidoHandler->executa($geraPedidoCommand);
+
+// php geraPedido.php 1500 5 "mikaele"

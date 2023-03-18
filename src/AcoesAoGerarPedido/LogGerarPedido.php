@@ -4,9 +4,9 @@ namespace Alura\DesingPatterns\AcoesAoGerarPedido;
 
 use Alura\DesingPatterns\Pedido;
 
-class LogGerarPedido implements AcaoAposGerarPedido
+class LogGerarPedido implements \SplObserver
 {
-    public function executaAcoes(Pedido $pedido): void
+    public function update(\SplSubject $pedido): void
     {
         echo "Gerando log do pedido" . PHP_EOL;
     }
