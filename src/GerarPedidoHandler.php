@@ -2,9 +2,15 @@
 
 namespace Alura\DesingPatterns;
 
-use Alura\DesingPatterns\{Command, Orcamento, Pedido};
+use Alura\DesingPatterns\{GerarPedidoCommand, Orcamento, Pedido};
+use Alura\DesingPatterns\AcoesAoGerarPedido\{
+    CriarPedidoNoBanco,
+    LogGerarPedido,
+    EnviarPedidoPorEmail
+};
 
-class GerarPedidoHandler implements Command
+// class GerarPedidoHandler implements Command
+class GerarPedidoHandler
 {
     public function __construct(
         /* PedidoRepository, MailService */
@@ -22,9 +28,12 @@ class GerarPedidoHandler implements Command
         $pedido->nomeCliente = $gerarPedido->getNomeCliente();
         $pedido->orcamento = $orcamento;
 
-        // PedidoRepository
-        echo "Cria pedido no banco de dados " . PHP_EOL;
-        // MailService
-        echo "Envia e-mail para cliente " . PHP_EOL;
+        $pedidoRepository = new CriarPedidoNoBanco();
+        $logGerarPedido = new LogGerarPedido();
+        $enviarPedidoPorEmail = new EnviarPedidoPorEmail();
+
+        $pedidoRepository->executaAcoes();
+        $logGerarPedido->executaAcoes();
+        $enviarPedidoPorEmail->executaAcoes();
     }
 }

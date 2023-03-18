@@ -2,7 +2,7 @@
 
 namespace Alura\DesingPatterns;
 
-class geraPedidoCommand
+class GerarPedidoCommand
 {
     private float $valorOrcamento;
     private int $numeroDeItens;
@@ -28,7 +28,7 @@ class geraPedidoCommand
         return $this->numeroDeItens;
     }
 
-    public function getNomeCliente(): int
+    public function getNomeCliente(): string
     {
         return $this->nomeCliente;
     }
