@@ -3,8 +3,7 @@
 namespace Alura\DesingPatterns\EstadosOrcamento;
 
 use Alura\DesingPatterns\Orcamento;
-use Alura\DesingPatterns\EstadosOrcamento\Aprovado;
-use Alura\DesingPatterns\EstadosOrcamento\Reprovado;
+use Alura\DesingPatterns\EstadosOrcamento\{Aprovado, Reprovado, Finalizado};
 
 class EmAprovacao extends EstadoOrcamento
 {
@@ -21,5 +20,10 @@ class EmAprovacao extends EstadoOrcamento
     public function aprova(Orcamento $orcamento)
     {
         $orcamento->estadoAtual = new Aprovado();
+    }
+
+    public function finaliza(Orcamento $orcamento)
+    {
+        $orcamento->estadoAtual = new Finalizado();
     }
 }
