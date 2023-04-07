@@ -12,4 +12,4 @@ $calculadora = new CalculadoraDeImpostos();
 $orcamento = new Orcamento();
 $orcamento->valor = 100;
 
-echo $calculadora->calcula($orcamento, new Iss());
+echo $calculadora->calcula($orcamento, new Iss(new Icms()));
