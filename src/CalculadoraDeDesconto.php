@@ -8,14 +8,23 @@ use Alura\DesingPatterns\Descontos\DescontoMais500Reais;
 
 class CalculadoraDeDesconto
 {
+    // uma faixada para um sistema o qual faz uma série de ações que quem for usar a calculadora não precisa saber
     public function calculaDesconto(Orcamento $orcamento): float
     {
+        // cadeia de descontos
         $cadeiaDescontos = new DescontoMais5Itens(
             new DescontoMais500Reais(
                 new SemDesconto()
             )
         );
 
-        return $cadeiaDescontos->calculaDesconto($orcamento);
+        // cálculo do desconto
+        $descontoCalculado = $cadeiaDescontos->calculaDesconto($orcamento);
+
+        // log
+        $logDesconto = new LogDesconto();
+        $logDesconto->informar($descontoCalculado);
+
+        return $descontoCalculado;
     }
 }
