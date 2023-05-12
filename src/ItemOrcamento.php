@@ -8,6 +8,8 @@ class ItemOrcamento implements Orcavel
 
     public function valor(): float
     {
+        // simulando a demora de acessoa a API
+        sleep(1);
         return $this->valor;
     }
 }

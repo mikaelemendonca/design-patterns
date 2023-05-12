@@ -2,6 +2,7 @@
 
 require 'vendor/autoload.php';
 
+use Alura\DesingPatterns\CacheOrcamentoProxy;
 use Alura\DesingPatterns\ItemOrcamento;
 use Alura\DesingPatterns\Orcamento;
 
@@ -22,4 +23,7 @@ $orcamento2->addItem($item1);
 
 $orcamento->addItem($orcamento2);
 
-echo $orcamento->valor();
+$proxy = new CacheOrcamentoProxy($orcamento);
+
+echo $proxy->valor();
+echo $proxy->valor();
