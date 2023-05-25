@@ -1,21 +1,20 @@
 <?php
 
-use Alura\DesingPatterns\DadosExtrinsecosPedido;
 use Alura\DesingPatterns\Orcamento;
-use Alura\DesingPatterns\Pedido;
+use Alura\DesingPatterns\Pedido\{CriadorPedido};
 
 require 'vendor/autoload.php';
 
-$dados = new DadosExtrinsecosPedido(
-    md5('a'),
-    new \DateTimeImmutable()
-);
-
 $pedidos = [];
+$criadorPedido = new CriadorPedido();
+
 for ($i = 0; $i < 10000; $i++) {
-    $pedido = new Pedido();
-    $pedido->orcamento = new Orcamento();
-    $pedido->dados = $dados;
+    $orcamento = new Orcamento();
+    $pedido = $criadorPedido->criaPedido(
+        'Mikaele Costa',
+        date('Y-m-d'),
+        $orcamento
+    );
 
     $pedidos[] = $pedido;
 }
