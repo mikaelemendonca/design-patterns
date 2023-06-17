@@ -1,8 +1,8 @@
 <?php
 
-namespace Alura\DesignPattern\Relatorio;
+namespace Alura\DesingPatterns\Relatorio;
 
-use Alura\DesignPattern\Orcamento;
+use Alura\DesingPatterns\Orcamento;
 
 class OrcamentoZip
 {

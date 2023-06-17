@@ -1,9 +1,9 @@
 <?php
 
-use Alura\DesignPattern\Http\CurlHttpAdapter;
-use Alura\DesignPattern\Http\ReactPHPHttpAdapter;
-use Alura\DesignPattern\RegistroOrcamento;
-use Alura\DesignPattern\Orcamento;
+use Alura\DesingPatterns\Http\CurlHttpAdapter;
+use Alura\DesingPatterns\Http\ReactPHPHttpAdapter;
+use Alura\DesingPatterns\RegistroOrcamento;
+use Alura\DesingPatterns\Orcamento;
 
 require 'vendor/autoload.php';
 

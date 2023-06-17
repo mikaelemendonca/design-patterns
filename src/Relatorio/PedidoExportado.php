@@ -1,8 +1,8 @@
 <?php
 
-namespace Alura\DesignPattern\Relatorio;
+namespace Alura\DesingPatterns\Relatorio;
 
-use Alura\DesignPattern\Pedido;
+use Alura\DesingPatterns\Pedido\Pedido;
 
 class PedidoExportado implements ConteudoExportado
 {

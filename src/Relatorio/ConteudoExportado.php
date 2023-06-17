@@ -1,6 +1,6 @@
 <?php
 
-namespace Alura\DesignPattern\Relatorio;
+namespace Alura\DesingPatterns\Relatorio;
 
 interface ConteudoExportado
 {

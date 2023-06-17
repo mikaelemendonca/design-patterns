@@ -1,8 +1,8 @@
 <?php
 
-namespace Alura\DesignPattern\Relatorio;
+namespace Alura\DesingPatterns\Relatorio;
 
-class ArquivoXmlExportado implements ArquivoExportado
+class ArquivoZipExportado implements ArquivoExportado
 {
     private string $nomeArquivoInterno;
 

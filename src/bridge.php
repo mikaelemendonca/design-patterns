@@ -2,11 +2,15 @@
 
 require 'vendor/autoload.php';
 
-use Alura\DesignPattern\{Orcamento, Pedido};
-// use Alura\DesignPattern\Relatorio\OrcamentoZip;
+use Alura\DesingPatterns\Orcamento;
+use Alura\DesingPatterns\Pedido\Pedido;
+use Alura\DesingPatterns\Relatorio\ArquivoXmlExportado;
+use Alura\DesingPatterns\Relatorio\OrcamentoExportado;
+use Alura\DesingPatterns\Relatorio\ArquivoZipExportado;
+use Alura\DesingPatterns\Relatorio\PedidoExportado;
 
-use Alura\DesignPattern\{OrcamentoExportado, PedidoExportado};
-use Alura\DesignPattern\{ArquivoXmlExportado, ArquivoZipExportado};
+// use Alura\DesingPatterns\Relatorio\OrcamentoZip;
+
 
 $orcamento = new Orcamento();
 $orcamento->valor = 500;
@@ -25,7 +29,7 @@ echo $orcamentoExportadoXml->salvar($orcamentoExportado);
 
 $pedido = new Pedido();
 $pedido->nomeCliente = 'Mikaele Mendonça';
-$pedido->datFinalizacao = new DateTimeImmutable();
+$pedido->dataFinalizacao = new \DateTimeImmutable();
 
 $pedidoExportado = new PedidoExportado($pedido);
 $pedidoExportadoXml = new ArquivoXmlExportado('orcamento');
