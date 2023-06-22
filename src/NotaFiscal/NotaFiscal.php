@@ -19,4 +19,22 @@ class NotaFiscal
         }
         return $valorItens;
     }
+
+    public function clonar(): NotaFiscal
+    {
+        $cloneNota = new NotaFiscal();
+        $cloneNota->cnpjEmpresa = $this->cnpjEmpresa;
+        $cloneNota->razaoSocial = $this->razaoSocial;
+        $cloneNota->itens = $this->itens;
+        $cloneNota->observacoes = $this->observacoes;
+        $cloneNota->dataEmissao = $this->dataEmissao;
+        $cloneNota->valorImpostos = $this->valorImpostos;
+
+        return $cloneNota;
+    }
+
+    public function __clone()
+    {
+        $this->dataEmissao = new \DateTimeImmutable();
+    }
 }

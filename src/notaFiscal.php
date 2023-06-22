@@ -18,3 +18,8 @@ $notaFiscal = $builder->paraEmpresa('123456', 'mika Ltda')
     ->constroi();
 
 echo $notaFiscal->valorImpostos;
+
+// $notaFiscal2 = $notaFiscal->clonar();
+$notaFiscal2 = clone $notaFiscal;
+$notaFiscal2->itens[] = new ItemOrcamento();
+var_dump($notaFiscal, $notaFiscal2);
